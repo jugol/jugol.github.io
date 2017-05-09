@@ -1,6 +1,6 @@
 # Site
 #bundle exec jekyll serve
-title:              Jinyo
+title:              jugol
 bio:                'Programmer, also Singer-songwriter'
 description:        "고려대학교 컴퓨터학과. 취미로 음악을 한다."
 reading_time:       true
@@ -27,7 +27,7 @@ sass:
   style:            compressed
 
 # Comments
-disqus_shortname:   jinyo
+disqus_shortname:   jugol
 
 # Social
 # if you don't have any of social below, comment the line.
