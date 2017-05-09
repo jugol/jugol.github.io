@@ -1,20 +1,25 @@
 ---
 layout: post
-title:  "Moon Jekyll Theme"
+title:  "SWLecture"
 date:   2016-04-06
-excerpt: "Minimal, one column Jekyll theme for your blog."
+excerpt: "무료 코딩 인강 사이트"
 project: true
 #project : true를 하면 프로젝트 폴더로 들어간다...;;;; 뭐 이따구로 짜놨는지
 tag:
-- jekyll
-- moon
-- blog
-- about
-- theme
+- c++
+- lecture
 comments: true
 ---
 
-![Moon Homepage](https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png)    
+
+## 무료로 고오오급 코딩 강의가 듣고 싶을 때
+<span style="font-size:20px;">[SWLecture](www.swlecture.com)</span>
+{% highlight yaml %}
+재미있는 C언어 강의~
+{% endhighlight %}
+
+
+<!-- ![Moon Homepage](https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png)    
 
 <center><b>Moon</b> is a minimal, one column jekyll theme.</center>
 
@@ -158,4 +163,4 @@ Found a bug or aren't quite sure how something works? By all means [file a GitHu
 
 ## License
 
-This theme is free and open source software, distributed under the MIT License. So feel free to use this Jekyll theme on your site without linking back to me or including a disclaimer.
+This theme is free and open source software, distributed under the MIT License. So feel free to use this Jekyll theme on your site without linking back to me or including a disclaimer. -->
