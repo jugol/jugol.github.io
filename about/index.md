@@ -15,6 +15,13 @@ comments: false
 * 고려대학교 컴퓨터학과 학사 졸업
 * 고려대학교 컴퓨터학과 석사과정 재학중
 
+## 논문
+
+eurovis2018
+PixelSNE: Visualizing Fast with Just Enough Precision via Pixel-Aligned Stochastic Neighbor Embedding
+Minjeong Kim, Minsuk Choi, Sunwoong Lee, Jian Tang, Haesun Park, Jaegul Choo
+https://arxiv.org/abs/1611.02568
+
 <!--
 ## Features
 * Minimal, you can focus on your content
