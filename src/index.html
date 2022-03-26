@@ -1,0 +1,71 @@
+<!--
+
+=========================================================
+* Neumorphism UI - v1.0.0
+=========================================================
+
+* Product Page: https://themesberg.com/product/ui-kits/neumorphism-ui
+* Copyright 2020 Themesberg MIT LICENSE (https://www.themesberg.com/licensing#mit)
+
+* Coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./loopy/_head.html', {
+        "path": "../..",
+        "title": "Loopy Bar"
+    })
+</head>
+
+<body>
+    @@include('./loopy/_navigation.html', {
+        "path": "../..",
+        "classes": "navbar-dark"
+    })
+    <main>
+
+        <section class="section section bg-primary pb-5 overflow-hidden z-2">
+            <div class="container z-2">
+                <div class="row justify-content-center text-center pt-6">
+                    <div class="col-lg-8 col-xl-8">
+                        <h1 class="display-2 mb-5">Loopy Bar<span class="presentation-badge bg-primary border border-light shadow-soft font-weight-bolder text-dark">Web</span></h1>
+                        <p class="lead px-md-6 mb-4" style="word-break: keep-all;">저를 Jinyo라고 불러도 되고 Bartender Loopy라고 불러도 되고 하고 싶은대로 하십쇼.</p>
+                        <p class="lead px-md-6 mb-5" style="word-break: keep-all;">암튼 도조 요로시꾸 오네가이시마스. 맛있게 술 먹고 기억나지 않는 곳에 있을 즐거운 기억들 영구 박제 하시기 바랍니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    @@include('./loopy/_footer.html', {
+        "path": "../..",
+        "classes": "bg-primary"
+    })
+
+    @@include('./_scripts.html', {
+        "path": "../.."
+    })
+    
+    <script>
+        $toggleTransitions = $('#toggleTransitions');
+        $buttonOverlay = $('.btn-loading-overlay');
+
+        $toggleTransitions.on('change', function() {
+            if ($(this).is(':checked')) {
+                $buttonOverlay.addClass('btn-loading');
+                $buttonOverlay.attr('disabled', true);
+            } else {
+                $buttonOverlay.removeClass('btn-loading');
+                $buttonOverlay.attr('disabled', false);
+            }
+        });
+    </script>
+</body>
+
+</html>
