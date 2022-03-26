@@ -1,3 +1,10 @@
+배포할 때
+
+```
+gulp build:dist
+```
+로 해라.
+
 ## Neumorphic components
 
 All components are perfectly in compliance with the neumorphism design trend making use of the specific shadow and coloring attributes. Neumorphism UI also comes with the shadow inset style add-on.
