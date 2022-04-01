@@ -3,7 +3,9 @@
 ```
 gulp build:dist
 ```
-로 해라.
+하고 나서 푸시 해라.
+
++ nvm 써서 node 14버전 써야 잘 빌드되는데, 이 때 윈도우라면 scoop을 써서 install해야 오류 없이 nvm 잘 쓸 수 있다.
 
 ## Neumorphic components
 
