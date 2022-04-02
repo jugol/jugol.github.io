@@ -1,0 +1,95 @@
+<!--
+
+=========================================================
+* Neumorphism UI - v1.0.0
+=========================================================
+
+* Product Page: https://themesberg.com/product/ui-kits/neumorphism-ui
+* Copyright 2020 Themesberg MIT LICENSE (https://www.themesberg.com/licensing#mit)
+
+* Coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./loopy/_head.html', {
+        "path": "../../..",
+        "title": "Loopy Bar - Shorts"
+    })
+</head>
+
+<body>
+    @@include('./loopy/_navigation.html', {
+        "path": "../../..",
+        "classes": "navbar-light"
+    })
+    <main>
+        <!-- Section -->
+        <section class="section section-lg">
+            <div class="container">
+                <div class="accordion shadow-soft rounded" id="accordionExample1">
+                    <div class="card card-sm card-body bg-primary border-light mb-0">
+                        <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+                            <span class="h6 mb-0 font-weight-bold">Web3 와 Web2의 Loopy Bar에 대해서</span>
+                            <span class="icon"><span class="fas fa-plus"></span></span>
+                        </a>
+                        <div class="collapse" id="panel-1">
+                            <div class="pt-3">
+                                <p class="mb-0">
+                                    이 홈페이지는 Loopy bar에 놀러오는 개인 지인들만을 위한 홈페이지를 넘어서, web3에서 web2로 넘어오는 일종의 통로를 위한 플랫폼으로써도 작동한다.
+                                    web3 상에서의 가상 bar 운영, 그리고 화리들을 위한 web2 유틸이자 실제 지인들을 위한 실물 bar 운영. 공통점은 무료고 팁은 받는다 정도?
+                                    몰라 그냥 대충 삽시다. 생각하지 말고 즐겨. 흐름에 몸을 맡겨
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body bg-primary border-light mb-0">
+                        <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+                            <span class="h6 mb-0 font-weight-bold">롤백</span>
+                            <span class="icon"><span class="fas fa-plus"></span></span>
+                        </a>
+                        <div class="collapse" id="panel-2">
+                            <div class="pt-3">
+                                <p class="mb-0">
+                                    우리는 아날로그가 메인스트림이던 시절에 대한 막연한 그리움이 있다. 지금도 있나? 모르겠다. 그치만 2010년대에는 확실히 있었다. 새로운 흐름에서 그 이전 흐름에 대한 향수는 과거와 지금, 그리고 미래에도 계속 될 패턴이다.
+                                    뭐, 각설하고 술은 우리를 롤백 시킨다. 뭐랄까. 지능을 응애시절로 돌리고, 참을성도 응애시절로 돌리고, 웃음의 역치도 응애시절로 돌려준다. 
+                                    더해서, 미래 지향적인 익명성이 보장된 커뮤니티의 멤버들을 강제 닥싱할 공간을 만들어서 그들의 신진 문물이 묻은 상태 또한 롤백시켜 버리는 통일성. 그것이 바로 이곳.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-sm card-body bg-primary border-light">
+                        <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+                            <span class="h6 mb-0 font-weight-bold">인지 부조화와 개소리</span>
+                            <span class="icon"><span class="fas fa-plus"></span></span>
+                        </a>
+                        <div class="collapse" id="panel-3">
+                            <div class="pt-3">
+                                <p class="mb-0">
+                                    강아지는 멍멍짖는다. 내가 짖으면 강아지라는 소리는 아니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of section -->
+    </main>
+    @@include('./loopy/_footer.html', {
+        "path": "../../..",
+        "classes": "bg-primary"
+    })
+
+    @@include('./_scripts.html', {
+        "path": "../../.."
+    })
+</body>
+
+</html>
