@@ -1,0 +1,73 @@
+<html><head></head><body><input id="inputNum" type="text"> <input id="correctNum" type="number"> <button onclick="newNumber()">submit</button> <button onclick="clearRest()">reset</button> <span id="inputs"></span><br>추천 번호 : <span id="recommend"></span><br>가능한 번호 : <span id="available"></span><br><script>let inputs = [];
+            let availableList = [];
+            let cnts = [];
+            let availableListPoint = [];
+            function newNumber() {
+                const inputNum = document.getElementById('inputNum').value
+                const correctNum = document.getElementById('correctNum').value
+                inputs.push([inputNum, correctNum])
+                recommend()
+                updateTexts()
+            }
+            function clearRest() {
+                inputs = []
+                availableList = []
+                availableListPoint = []
+                updateTexts()
+            }
+            function updateTexts() {
+                document.getElementById('inputs').innerText = inputs.toString()
+                document.getElementById('recommend').innerText = JSON.stringify(availableListPoint.sort((a,b) => b[1] - a[1]))
+                document.getElementById('available').innerText = availableList.toString()
+            }
+            function recommend() {
+                availableList = []
+                cnts = []
+                availableListPoint = []
+                for(let i=0;i<4;i++){
+                    cnts.push({
+                        1:0,2:0,3:0,4:0,5:0,6:0
+                    })
+                }
+                for(let i=1;i<=6;i++){
+                    for(let j=1;j<=6;j++){
+                        if(i!=j)
+                        for(let k=1;k<=6;k++){
+                            if(i!=k && j!=k)
+                            for(let l=1;l<=6;l++){
+                                if(i!=l && j!=l && k!=l){
+                                    let idx;
+                                    for(idx=0; idx<inputs.length; idx++){
+                                        const num = inputs[idx][0];
+                                        const correct = inputs[idx][1];
+                                        let cnt=0;
+                                        if(i==num[0]) cnt++;
+                                        if(j==num[1]) cnt++;
+                                        if(k==num[2]) cnt++;
+                                        if(l==num[3]) cnt++;
+                                        if(cnt != correct) {
+                                            break;
+                                        }
+                                    }
+                                    if(idx == inputs.length){
+                                        console.log(i.toString()+j+k+l)
+                                        availableList.push(i.toString()+j+k+l)
+                                        cnts[0][i] ++;
+                                        cnts[1][j] ++;
+                                        cnts[2][k] ++;
+                                        cnts[3][l] ++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                for(let i=0;i<availableList.length;i++)
+                {
+                    let point = 0;
+                    for(let j=0;j<4;j++){
+                        point+= cnts[j][availableList[i][j]]
+                    }
+                    availableListPoint.push([availableList[i],point])
+                }
+            }</script></body></html>
