@@ -14,19 +14,25 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-
-var autoprefixer = require('gulp-autoprefixer');
-var browserSync = require('browser-sync').create();
-var cleanCss = require('gulp-clean-css');
-var del = require('del');
+// 맨 위 import 쪽 교체
+const gulp = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
+const cleanCss = require('gulp-clean-css');
 const htmlmin = require('gulp-htmlmin');
 const cssbeautify = require('gulp-cssbeautify');
-var gulp = require('gulp');
 const npmDist = require('gulp-npm-dist');
-var sass = require('gulp-sass');
-var wait = require('gulp-wait');
-var sourcemaps = require('gulp-sourcemaps');
-var fileinclude = require('gulp-file-include');
+const wait = require('gulp-wait');
+const sourcemaps = require('gulp-sourcemaps');
+const fileinclude = require('gulp-file-include');
+
+// del@6을 쓰는 게 CommonJS에 편함 (del@7은 ESM)
+const del = require('del'); // del@6 권장
+
+// ⚠️ 핵심: gulp-sass에 dart-sass를 주입
+const dartSass = require('sass');
+const gulpSass = require('gulp-sass')(dartSass);
+
 
 // Define paths
 
@@ -75,7 +81,7 @@ gulp.task('scss', function () {
     return gulp.src([paths.src.scss + '/neumorphism/**/*.scss', paths.src.scss + '/neumorphism.scss'])
         .pipe(wait(500))
         .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
+        .pipe(gulpSass().on('error', gulpSass.logError))
         .pipe(autoprefixer({
             overrideBrowserslist: ['> 1%']
         }))
@@ -116,12 +122,12 @@ gulp.task('assets', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('vendor', function() {
+gulp.task('vendor', function () {
     return gulp.src(npmDist(), { base: paths.src.node_modules })
-      .pipe(gulp.dest(paths.temp.vendor));
+        .pipe(gulp.dest(paths.temp.vendor));
 });
 
-gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'vendor', function() {
+gulp.task('serve', gulp.series('scss', 'html', 'index', 'assets', 'vendor', function () {
     browserSync.init({
         server: paths.temp.base
     });
@@ -146,8 +152,8 @@ gulp.task('minify:css', function () {
     return gulp.src([
         paths.dist.css + '/neumorphism.css'
     ])
-    .pipe(cleanCss())
-    .pipe(gulp.dest(paths.dist.css))
+        .pipe(cleanCss())
+        .pipe(gulp.dest(paths.dist.css))
 });
 
 // Minify Html
@@ -195,7 +201,7 @@ gulp.task('copy:dist:css', function () {
     return gulp.src([paths.src.scss + '/neumorphism/**/*.scss', paths.src.scss + '/neumorphism.scss'])
         .pipe(wait(500))
         .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
+        .pipe(gulpSass().on('error', gulpSass.logError))
         .pipe(autoprefixer({
             overrideBrowserslist: ['> 1%']
         }))
@@ -207,7 +213,7 @@ gulp.task('copy:dev:css', function () {
     return gulp.src([paths.src.scss + '/neumorphism/**/*.scss', paths.src.scss + '/neumorphism.scss'])
         .pipe(wait(500))
         .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
+        .pipe(gulpSass().on('error', gulpSass.logError))
         .pipe(autoprefixer({
             overrideBrowserslist: ['> 1%']
         }))
@@ -277,14 +283,14 @@ gulp.task('copy:dev:assets', function () {
 });
 
 // Copy node_modules to vendor
-gulp.task('copy:dist:vendor', function() {
+gulp.task('copy:dist:vendor', function () {
     return gulp.src(npmDist(), { base: paths.src.node_modules })
-      .pipe(gulp.dest(paths.dist.vendor));
+        .pipe(gulp.dest(paths.dist.vendor));
 });
 
-gulp.task('copy:dev:vendor', function() {
+gulp.task('copy:dev:vendor', function () {
     return gulp.src(npmDist(), { base: paths.src.node_modules })
-      .pipe(gulp.dest(paths.dev.vendor));
+        .pipe(gulp.dest(paths.dev.vendor));
 });
 
 gulp.task('build:dev', gulp.series('clean:dev', 'copy:dev:css', 'copy:dev:html', 'copy:dev:html:index', 'copy:dev:assets', 'beautify:css', 'copy:dev:vendor'));
