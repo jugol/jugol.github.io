@@ -6,7 +6,7 @@ gulp
 배포할 때
 
 ```
-gulp build:dist
+npx gulp build:dist
 ```
 하고 나서 푸시 해라.
 
